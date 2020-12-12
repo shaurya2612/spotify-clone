@@ -1,12 +1,19 @@
 import * as React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import Album from "../components/Album";
 
 import EditScreenInfo from "../components/EditScreenInfo";
+
+const album = {
+  id:"1",
+  imageUri:'https://picsum.photos/200',
+  artistsHeadline: 'Taylor Swift, Cardi Objective C, Avicii'
+}
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={{color:"white"}}>Hello</Text>
+      <Album album={album}/>
     </View>
   );
 }

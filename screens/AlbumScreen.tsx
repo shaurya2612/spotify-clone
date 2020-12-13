@@ -1,6 +1,6 @@
 import { useRoute } from "@react-navigation/native";
 import React from "react";
-import { Text, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import SongListItem from "../components/SongListItem";
 import albumDetails from "../data/albumDetails";
 
@@ -9,7 +9,11 @@ export const AlbumScreen = () => {
   return (
     <View>
       <Text style={{ color: "white" }}>Hello</Text>
-      <SongListItem song={albumDetails.songs[0]} />
+      <FlatList
+        data={albumDetails.songs}
+        renderItem={({ item }) => <SongListItem song={item} />}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 };

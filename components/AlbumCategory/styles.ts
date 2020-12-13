@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     },
     title:{
         color:"white",
-        fontSize:moderateScale(30, 0.4),
+        fontSize:moderateScale(25, 0.4),
         fontWeight:"bold",
     }
 })

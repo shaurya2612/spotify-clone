@@ -7,20 +7,20 @@ const styles = StyleSheet.create({
     padding:moderateScale(20, 0.4)
   },
   image: {
-    width: moderateScale(200, 0.4),
-    height: moderateScale(200, 0.4),
+    width: scale(200),
+    height: scale(200),
     margin: moderateScale(15, 0.4),
   },
   name: {
     color: "white",
-    fontSize: moderateScale(30, 0.4),
+    fontSize: moderateScale(25, 0.4),
     fontWeight: "bold",
-    marginTop:moderateScale(10, 0.4)
+    marginTop:verticalScale(10)
   },
   creatorContainer: {
     flexDirection: "row",
-    marginTop: moderateScale(5, 0.4),
-    marginBottom: moderateScale(3, 0.4)
+    marginTop: verticalScale(5),
+    marginBottom: verticalScale(3)
   },
   creator: {
     color: "lightgray",
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "white",
     fontWeight: "bold",
-    fontSize: moderateScale(18, 0.4),
+    fontSize: moderateScale(15, 0.4),
   },
 });
 

@@ -1,14 +1,13 @@
 import { StyleSheet } from "react-native";
-import { moderateScale, scale } from "react-native-size-matters";
+import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    bottom: moderateScale(73, 0.4),
+    bottom: verticalScale(60),
     backgroundColor: "#131313",
     width: "100%",
     flexDirection: "row",
-    // margin: moderateScale(10, 0.4),
     borderBottomWidth: moderateScale(3, 0.4),
     borderColor: "black",
     alignItems: "center",

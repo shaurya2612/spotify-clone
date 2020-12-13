@@ -1,6 +1,7 @@
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import React from "react";
 import { Image, Text, View } from "react-native";
+import { moderateScale } from "react-native-size-matters";
 import { Song } from "../../types";
 import styles from "./styles";
 
@@ -21,8 +22,8 @@ export const PlayerWidget = () => {
           <Text style={styles.artist}>{song.artist}</Text>
         </View>
         <View style={styles.iconsContainer}>
-          <AntDesign name="hearto" size={30} color={"white"} />
-          <FontAwesome name="play" size={30} color={"white"} />
+          <AntDesign name="hearto" size={moderateScale(25, 0.4)} color={"white"} />
+          <FontAwesome name="play" size={moderateScale(25, 0.4)} color={"white"} />
         </View>
       </View>
     </View>

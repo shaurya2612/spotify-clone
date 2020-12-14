@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import PlayerWidget from "./components/PlayerWidget";
 
@@ -16,12 +16,16 @@ export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
+  const [songId, setSongId] = useState<string | null>(null);
+
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
       <SafeAreaProvider>
-        <AppContext.Provider>
+        <AppContext.Provider
+          value={{ songId, setSongId: (id) => setSongId(id) }}
+        >
           <Navigation colorScheme={colorScheme} />
           <StatusBar />
           <PlayerWidget />

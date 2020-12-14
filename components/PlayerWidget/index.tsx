@@ -1,11 +1,14 @@
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 import { Song } from "../../types";
 import styles from "./styles";
 import { Audio } from "expo-av";
 import { Sound } from "expo-av/build/Audio";
+import { AppContext } from "../../AppContext";
+import { API, graphqlOperation } from "aws-amplify";
+import { getSong } from "../../graphql/queries";
 
 const song = {
   id: "1",
@@ -18,10 +21,13 @@ const song = {
 };
 
 export const PlayerWidget = () => {
+  const [song, setSong] = useState(null);
   const [sound, setSound] = useState<Sound | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [duration, setDuration] = useState<number | null>(null);
   const [position, setPosition] = useState<number | null>(null);
+
+  const { songId } = useContext(AppContext);
 
   const onPlaybackStatusUpdate = (status) => {
     setIsPlaying(status.isPlaying);
@@ -60,12 +66,30 @@ export const PlayerWidget = () => {
   };
 
   useEffect(() => {
-    // play the song
-    playCurrentSong();
-  }, []);
+    if (song) playCurrentSong();
+  }, [song]);
+
+  useEffect(() => {
+    console.log(song)
+    const fetchSong = async () => {
+      try {
+        const data = await API.graphql(
+          graphqlOperation(getSong, { id: songId })
+        );
+        setSong(data.data.getSong);
+        console.log("song", data)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchSong();
+  }, [songId]);
+
+  if (!song) return null;
+
   return (
     <View style={styles.container}>
-      <View style={{...styles.progress, width:`${getProgress()}%`}} />
+      <View style={{ ...styles.progress, width: `${getProgress()}%` }} />
       <View style={styles.row}>
         <Image style={styles.image} source={{ uri: song.imageUri }} />
         <View style={styles.rightContainer}>

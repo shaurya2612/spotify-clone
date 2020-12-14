@@ -7,10 +7,16 @@ const styles = StyleSheet.create({
     bottom: verticalScale(60),
     backgroundColor: "#131313",
     width: "100%",
-    flexDirection: "row",
     borderBottomWidth: moderateScale(3, 0.4),
     borderColor: "black",
-    alignItems: "center",
+    // alignItems: "center",
+  },
+  progress:{
+    height: verticalScale(3),
+    backgroundColor:"#bcbcbc"
+  },
+  row:{
+    flexDirection:"row"
   },
   rightContainer: {
     flex: 1,

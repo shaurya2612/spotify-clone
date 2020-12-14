@@ -1,11 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import PlayerWidget from './components/PlayerWidget';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import PlayerWidget from "./components/PlayerWidget";
 
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
+import useCachedResources from "./hooks/useCachedResources";
+import useColorScheme from "./hooks/useColorScheme";
+import Navigation from "./navigation";
+
+import Amplify from "aws-amplify";
+import config from "./aws-exports";
+Amplify.configure(config);
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -18,7 +22,7 @@ export default function App() {
       <SafeAreaProvider>
         <Navigation colorScheme={colorScheme} />
         <StatusBar />
-        <PlayerWidget/>
+        <PlayerWidget />
       </SafeAreaProvider>
     );
   }

@@ -5,9 +5,9 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     bottom: verticalScale(60),
-    backgroundColor: "#131313",
+    backgroundColor: "#212121",
     width: "100%",
-    borderBottomWidth: moderateScale(3, 0.4),
+    borderBottomWidth: moderateScale(1, 0.4),
     borderColor: "black",
     // alignItems: "center",
   },

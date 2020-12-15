@@ -6,14 +6,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding:moderateScale(20, 0.4)
   },
+  nameContainer:{
+    textAlign:"center"
+  },
   image: {
-    width: scale(200),
-    height: scale(200),
+    width: scale(150),
+    height: scale(150),
     margin: moderateScale(15, 0.4),
   },
   name: {
     color: "white",
-    fontSize: moderateScale(25, 0.4),
+    fontSize: moderateScale(22, 0.4),
     fontWeight: "bold",
     marginTop:verticalScale(10)
   },

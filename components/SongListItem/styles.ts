@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { moderateScale, scale } from "react-native-size-matters";
+import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 
 const styles = StyleSheet.create({
   container: {
@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
       margin: moderateScale(10, 0.4)
   },
   rightContainer:{
-    justifyContent:"space-around",
+    justifyContent:"space-evenly",
     marginLeft: moderateScale(15, 0.4)
   },
   image: {
@@ -16,11 +16,12 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "white",
-    fontSize:moderateScale(18, 0.4)
+    fontSize:moderateScale(15, 0.4),
+    marginBottom:verticalScale(-4)
   },
   artist: {
     color: "lightgray",
-    fontSize:moderateScale(14, 0.4)
+    fontSize:moderateScale(13, 0.4)
   },
 });
 

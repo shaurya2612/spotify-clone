@@ -13,9 +13,9 @@ export const AlbumHeader = (props: AlbumHeaderProps) => {
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={{ uri: album.imageUri }} />
-
-      <Text style={styles.name}>{album.name}</Text>
-
+      <View style={styles.nameContainer}>
+        <Text style={styles.name}>{album.name}</Text>
+      </View>
       <View style={styles.creatorContainer}>
         <Text style={styles.creator}>by {album.by} ·</Text>
         <Text style={styles.likes}>{album.numberOfLikes} Likes</Text>

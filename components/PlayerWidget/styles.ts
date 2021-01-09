@@ -4,7 +4,7 @@ import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    bottom: verticalScale(60),
+    bottom: "9%",
     backgroundColor: "#212121",
     width: "100%",
     borderBottomWidth: moderateScale(1, 0.4),
